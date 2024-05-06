@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/components/chart_tile.dart';
+import 'package:whatsapp_clone/components/chat_tile.dart';
+import 'package:whatsapp_clone/models/chat.dart';
 
 class CommunityScreen extends StatelessWidget {
   const CommunityScreen({super.key});
@@ -17,9 +18,10 @@ class CommunityScreen extends StatelessWidget {
           const Row(),
           Expanded(
             child: ListView.builder(
-              itemCount: 8,
+              itemCount: contacts.length,
               itemBuilder: (context, index) {
-                return const ChatTile();
+                Chat chat = contacts[index];
+                return ChatTile(chat: chat,);
               }
             ),
           ),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/models/chat.dart';
 
 class ChatTile extends StatelessWidget {
-  const ChatTile({super.key});
+  const ChatTile({super.key, required this.chat});
+
+  final Chat chat;
 
   @override
   Widget build(BuildContext context) {
@@ -14,15 +17,15 @@ class ChatTile extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(25),
           child: Image.asset( 
-            'lib/images/ahmadProfilePic.png', width: 45, height: 45, ),
+            chat.imagePath, width: 45, height: 45, ),
         ),
       ),
-      title: const Text(
-        'Aroyehun Ahmad',
-        style: TextStyle(color: Colors.white),
+      title: Text(
+        chat.name,
+        style: const TextStyle(color: Colors.white),
       ),
       subtitle: Text(
-        'Sincerity, Excellence, and Service are our values!',
+        chat.message,
         style: TextStyle(color: Colors.grey[350]),
       ),
     );

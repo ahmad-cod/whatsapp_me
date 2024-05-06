@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/components/chart_tile.dart';
-// import 'package:whatsapp_clone/components/my_appbar.dart';
-// import 'package:whatsapp_clone/components/navbar.dart';
+import 'package:whatsapp_clone/components/chat_tile.dart';
+import 'package:whatsapp_clone/models/chat.dart';
 
 class ChatsScreen extends StatelessWidget {
   const ChatsScreen({super.key});
@@ -10,7 +9,6 @@ class ChatsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.teal,
-      // appBar: const MyAppBar(title: 'WhatsApp'),
       body: Column(
         children: [
           const Divider(
@@ -20,9 +18,10 @@ class ChatsScreen extends StatelessWidget {
           const Row(),
           Expanded(
             child: ListView.builder(
-              itemCount: 8,
+              itemCount: contacts.length,
               itemBuilder: (context, index) {
-                return const ChatTile();
+                Chat chat = contacts[index];
+                return ChatTile(chat: chat,);
               }
             ),
           ),
