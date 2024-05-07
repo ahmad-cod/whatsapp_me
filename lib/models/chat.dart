@@ -1,9 +1,9 @@
-List<Chat> contacts = [
-  const Chat(name: 'Aroyehun Ahmad', imagePath: 'lib/images/ahmadProfilePic.png', message: 'You just won \$50 from the flutter challenge', isRead: false, time: 'today',),
+List<Chat> chats = [
+  const Chat(name: 'Aroyehun A', imagePath: 'lib/images/ahmadDp.png', message: 'You just won \$50 from the flutter challenge', isRead: false, time: 'today',),
   const Chat(name: 'Jalasem', imagePath: 'lib/images/jalasemdp.jpeg', message: 'Congratulations brother!', isRead: true, time: 'today',),
   const Chat(name: 'Maafy', imagePath: 'lib/images/maafy.jpeg', message: 'Assalamu alaykum Ustadh', isRead: true, time: 'yesterday',),
   const Chat(name: 'Rentlify Team', imagePath: 'lib/images/rentlify.jpeg', message: 'We are launching fully next month team.', isRead: false, time: 'May 2',),
-  const Chat(name: 'الشيخ عبد السلام', imagePath: 'lib/images/palestine.jpeg', message: 'حياكم الله شيخنا', isRead: false, time: 'May 1',),
+  const Chat(name: 'الشيخ عبدالسلام', imagePath: 'lib/images/palestine.jpeg', message: 'حياكم الله شيخنا', isRead: false, time: 'May 1',),
   const Chat(name: 'Abdurrahman Ade', imagePath: 'lib/images/dekunle.jpeg', message: 'I couldn\'t get the umrah visa!', isRead: false, time: 'May 1'),
 ];
 
@@ -27,6 +27,6 @@ class Chat {
   // methods 
 
   List<Chat> getChatList() {
-    return contacts;
+    return chats;
   }
 }
