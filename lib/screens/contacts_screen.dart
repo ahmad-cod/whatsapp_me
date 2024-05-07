@@ -101,7 +101,7 @@ class _ContactsViewState extends State<ContactsView> {
                 child: ListTile(
                   leading: CircleAvatar(
                     backgroundImage: AssetImage(
-                        'lib/images/${contactList[index].imagePath}'),
+                        'lib/images/${contactList[index].profilePic}'),
                     radius: 25,
                   ),
                   title: Text(

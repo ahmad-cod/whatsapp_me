@@ -1,14 +1,14 @@
 class Call {
-  // name, time, type, dp / imagePath, 
+  // name, time, type, dp / profilePic, 
   const Call({
     required this.name,
     required this.type,
     required this.time,
-    required this.imagePath,
+    required this.profilePic,
   });
 
   final String name;
   final String type;
   final String time;
-  final String imagePath;
+  final String profilePic;
 }

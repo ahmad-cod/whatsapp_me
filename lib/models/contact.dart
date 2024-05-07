@@ -1,9 +1,9 @@
 class Contact {
-  // properties: name, about, imagePath
+  // properties: name, about, profilePic
   final String name;
   final String? about;
-  final String imagePath;
+  final String profilePic;
   final List? messages;
 
-  const Contact({ required this.name, this.about, required this.imagePath, this.messages});
+  const Contact({ required this.name, this.about, required this.profilePic, this.messages});
 }

@@ -52,7 +52,7 @@ class _ChatViewState extends State<ChatView> {
               width: 5,
             ),
             CircleAvatar(
-              backgroundImage: AssetImage(widget.chatUser.imagePath),
+              backgroundImage: AssetImage(widget.chatUser.profilePic),
             )
           ],
         ),
