@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 9), () {
+    Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         _home = const HomeScreen();
       });
@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal[900]!)
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green)
       ),
       home: _home,
     );
