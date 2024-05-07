@@ -19,9 +19,9 @@ class ChatsScreen extends StatelessWidget {
           const Row(),
           Expanded(
             child: ListView.builder(
-              itemCount: contacts.length,
+              itemCount: chats.length,
               itemBuilder: (context, index) {
-                Chat chat = contacts[index];
+                Chat chat = chats[index];
                 return ChatTile(chat: chat,);
               }
             ),
