@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/components/my_appbar.dart';
 import 'package:whatsapp_clone/components/navbar.dart';
+import 'package:whatsapp_clone/models/custom_icon.dart';
 import 'package:whatsapp_clone/screens/calls_screen.dart';
 import 'package:whatsapp_clone/screens/community_screen.dart';
 import 'package:whatsapp_clone/screens/chats_screen.dart';
+import 'package:whatsapp_clone/screens/contacts_screen.dart';
 import 'package:whatsapp_clone/screens/updates_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -40,11 +42,11 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   // floating bar icons list for each screen
-  final List<Widget> _icons = const [
-    Icon(Icons.add_comment_outlined),
-    Icon(Icons.group_add_outlined),
-    Icon(Icons.camera_alt_outlined),
-    Icon(Icons.add_call),
+  final List<CustomIcon> _icons = const [
+   CustomIcon(icon: Icon(Icons.chat_outlined), toScreen: ContactsView(), tooltip: 'Chat'),
+   CustomIcon(icon: Icon(Icons.group_add_outlined), toScreen: ContactsView(), tooltip: 'Chat'),
+   CustomIcon(icon: Icon(Icons.camera_alt_outlined), toScreen: ContactsView(), tooltip: 'Upload Status'),
+   CustomIcon(icon: Icon(Icons.add_call), toScreen: ContactsView(), tooltip: 'Call'),
   ];
 
   // methods
@@ -57,15 +59,18 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal,
+      backgroundColor: Colors.green,
       appBar: MyAppBar(title: _titles[selectedIndex]),
       body: _screens[selectedIndex],
 
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        tooltip: 'Chat',
-        // child: const Icon(Icons.add_comment_outlined),
-        child: _icons[selectedIndex],
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: 
+            (context) => _icons[selectedIndex].toScreen
+          ));
+        },
+        tooltip: _icons[selectedIndex].tooltip,
+        child: _icons[selectedIndex].icon,
       ),
       bottomNavigationBar: Navbar(
         selectedIndex: selectedIndex,
