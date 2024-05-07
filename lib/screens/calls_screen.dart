@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/components/call_tile.dart';
+import 'package:whatsapp_clone/models/call_log.dart';
 
 class CallsScreen extends StatelessWidget {
   const CallsScreen({super.key});
@@ -17,9 +18,9 @@ class CallsScreen extends StatelessWidget {
           const Row(),
           Expanded(
             child: ListView.builder(
-              itemCount: 8,
+              itemCount: callLogs.length,
               itemBuilder: (context, index) {
-                return const CallTile();
+                return CallTile(callLog: callLogs[index],);
               }
             ),
           ),
