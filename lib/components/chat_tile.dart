@@ -34,6 +34,27 @@ class ChatTile extends StatelessWidget {
           chat.message,
           style: TextStyle(color: Colors.grey[350]),
         ),
+        trailing: const Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              '2:50pm',
+              style: TextStyle(fontSize: 12, color: Colors.white70),
+            ),
+
+            CircleAvatar(
+              backgroundColor: Colors.green,
+              radius: 10,
+              child: Text(
+                '2',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.white,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
