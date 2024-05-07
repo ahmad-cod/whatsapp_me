@@ -39,6 +39,14 @@ class _HomeScreenState extends State<HomeScreen> {
     CallsScreen(),
   ];
 
+  // floating bar icons list for each screen
+  final List<Widget> _icons = const [
+    Icon(Icons.add_comment_outlined),
+    Icon(Icons.group_add_outlined),
+    Icon(Icons.camera_alt_outlined),
+    Icon(Icons.add_call),
+  ];
+
   // methods
   void navigateNavbar (int index) {
     setState(() {
@@ -56,7 +64,8 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: (){},
         tooltip: 'Chat',
-        child: const Icon(Icons.add_comment_outlined),
+        // child: const Icon(Icons.add_comment_outlined),
+        child: _icons[selectedIndex],
       ),
       bottomNavigationBar: Navbar(
         selectedIndex: selectedIndex,

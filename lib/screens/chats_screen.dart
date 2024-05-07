@@ -15,6 +15,7 @@ class ChatsScreen extends StatelessWidget {
             color: Colors.grey,
             height: 1,
           ),
+          const SizedBox(height: 8,),
           const Row(),
           Expanded(
             child: ListView.builder(
