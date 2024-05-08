@@ -14,7 +14,7 @@ class UpdatesScreen extends StatelessWidget {
             color: Colors.grey,
             height: 1,
           ),
-          Channels(),
+          Expanded(child: Channels()),
           Row(),
         ]  
           ),
