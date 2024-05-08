@@ -23,7 +23,7 @@ class CallTile extends StatelessWidget {
     return ListTile(
       leading: Container(
         decoration: BoxDecoration(
-          color: Colors.teal,
+          color: Colors.teal[200],
           borderRadius: BorderRadius.circular(28)
         ),
         child: ClipRRect(
@@ -41,7 +41,7 @@ class CallTile extends StatelessWidget {
           getIcon(callLog.callType),
           const SizedBox(width: 5,),
           Text(
-            'May 5',
+          '${callLog.timestamp}',
             style: TextStyle(color: Colors.grey[350]),
           ),
         ],
