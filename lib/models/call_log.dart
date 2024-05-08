@@ -36,10 +36,24 @@ List<CallLog> callLogs = [
     timestamp: DateTime.now().subtract(const Duration(days: 1)), // Yesterday
   ),
   CallLog(
-    name: "", // Empty name for testing image handling
+    name: "Prince Ade",
+    number: "07054547240",
+    dpPath: "ahmadDp.png",
+    callType: CallType.dialed,
+    timestamp: DateTime.now().subtract(const Duration(hours: 1)), // Yesterday
+  ),
+  CallLog(
+    name: "Scholar AR",
+    number: "+2456543210",
+    dpPath: "dekunle.jpeg",
+    callType: CallType.received,
+    timestamp: DateTime.now().subtract(const Duration(days: 1)), // Yesterday
+  ),
+  CallLog(
+    name: "", // Empty name for testing number handling
     number: "+0123456789",
     dpPath: "palestine.jpeg",
-    callType: CallType.dialed,
+    callType: CallType.received,
     timestamp: DateTime.now().subtract(const Duration(minutes: 30)), // 30 minutes ago
   ),
 ];

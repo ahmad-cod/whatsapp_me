@@ -12,7 +12,7 @@ class ContactsView extends StatefulWidget {
 }
 
 class _ContactsViewState extends State<ContactsView> {
-  // variables: contactList, isSearch
+  // variables: isSearch
   bool isSearch = false;
 
   // methods
@@ -47,15 +47,9 @@ class _ContactsViewState extends State<ContactsView> {
                         cursorColor: Colors.white,
                         decoration: const InputDecoration(
                           border: InputBorder.none,
-                          // focusedBorder: UnderlineInputBorder(
-
-                          //   borderSide: BorderSide(color: Colors.white),
-                          // ),
                         ),
                         autofocus: true,
-                        onChanged: (value) {
-                          // item = value;
-                        },
+                        onChanged: (value) {},
                       ),
                     ),
                   ],
@@ -80,7 +74,8 @@ class _ContactsViewState extends State<ContactsView> {
                       Row(
                         children: [
                           GestureDetector(
-                              onTap: toggleSearch, child: const Icon(Icons.search)),
+                              onTap: toggleSearch,
+                              child: const Icon(Icons.search)),
                           const SizedBox(width: 10),
                           const Icon(Icons.more_vert_sharp),
                         ],
@@ -116,14 +111,6 @@ class _ContactsViewState extends State<ContactsView> {
                       fontSize: 12,
                     ),
                   ),
-                  // trailing: contactList[index].name == "New contact"
-                  //     ? GestureDetector(
-                  //         onTap: () {
-                  //           Navigator.push(context,
-                  //               MaterialPageRoute(builder: (context) => Camera()));
-                  //         },
-                  //         child: Icon(Icons.qr_code))
-                  //     : Text(""),
                 ),
               );
             }));

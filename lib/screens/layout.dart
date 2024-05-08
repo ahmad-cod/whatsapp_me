@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   // appbar title list
   final List<String> _titles = [
     'WhatsApp',
-    'Community',
+    'Communities',
     'Updates',
     'Calls',
   ];
@@ -43,35 +43,48 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // floating bar icons list for each screen
   final List<CustomIcon> _icons = const [
-   CustomIcon(icon: Icon(Icons.chat_outlined), toScreen: ContactsView(), tooltip: 'Chat'),
-   CustomIcon(icon: Icon(Icons.group_add_outlined), toScreen: ContactsView(), tooltip: 'Chat'),
-   CustomIcon(icon: Icon(Icons.camera_alt_outlined), toScreen: ContactsView(), tooltip: 'Upload Status'),
-   CustomIcon(icon: Icon(Icons.add_call), toScreen: ContactsView(), tooltip: 'Call'),
+    CustomIcon(
+        icon: Icon(Icons.chat_outlined),
+        toScreen: ContactsView(),
+        tooltip: 'Chat'),
+    CustomIcon(
+        icon: Icon(Icons.group_add_outlined),
+        toScreen: ContactsView(),
+        tooltip: 'Chat'),
+    CustomIcon(
+        icon: Icon(Icons.camera_alt_outlined),
+        toScreen: ContactsView(),
+        tooltip: 'Upload Status'),
+    CustomIcon(
+        icon: Icon(Icons.add_call), toScreen: ContactsView(), tooltip: 'Call'),
   ];
 
   // methods
-  void navigateNavbar (int index) {
+  void navigateNavbar(int index) {
     setState(() {
       selectedIndex = index;
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.green,
       appBar: MyAppBar(title: _titles[selectedIndex]),
+
       body: _screens[selectedIndex],
 
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: 
-            (context) => _icons[selectedIndex].toScreen
-          ));
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => _icons[selectedIndex].toScreen));
         },
         tooltip: _icons[selectedIndex].tooltip,
         child: _icons[selectedIndex].icon,
       ),
+
       bottomNavigationBar: Navbar(
         selectedIndex: selectedIndex,
         navigateNavbar: navigateNavbar,

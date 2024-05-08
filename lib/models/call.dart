@@ -1,5 +1,4 @@
 class Call {
-  // name, time, type, dp / profilePic, 
   const Call({
     required this.name,
     required this.type,

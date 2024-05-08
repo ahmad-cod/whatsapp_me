@@ -18,11 +18,12 @@ class CallsScreen extends StatelessWidget {
           const Row(),
           Expanded(
             child: ListView.builder(
-              itemCount: callLogs.length,
-              itemBuilder: (context, index) {
-                return CallTile(callLog: callLogs[index],);
-              }
-            ),
+                itemCount: callLogs.length,
+                itemBuilder: (context, index) {
+                  return CallTile(
+                    callLog: callLogs[index],
+                  );
+                }),
           ),
         ],
       ),

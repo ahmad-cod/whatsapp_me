@@ -28,13 +28,6 @@ class ChatsScreen extends StatelessWidget {
           ),
         ],
       ),
-
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: (){},
-      //   tooltip: 'Chat',
-      //   child: const Icon(Icons.add_comment_outlined),
-      // ),
-      // bottomNavigationBar: const Navbar(),
     );
   }
 }
