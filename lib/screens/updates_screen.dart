@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/components/channels.dart';
+import 'package:whatsapp_clone/components/my_divider.dart';
+import 'package:whatsapp_clone/components/status.dart';
 
 class UpdatesScreen extends StatelessWidget {
   const UpdatesScreen({super.key});
@@ -10,10 +12,9 @@ class UpdatesScreen extends StatelessWidget {
       backgroundColor: Colors.teal,
       body: Column(
         children: [
-          Divider(
-            color: Colors.grey,
-            height: 1,
-          ),
+          MyDivider(),
+          Status(),
+          MyDivider(),
           Expanded(child: Channels()),
           Row(),
         ]  
