@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:whatsapp_clone/components/title_bar.dart';
 
 class Channels extends StatelessWidget {
   const Channels({super.key});
@@ -12,22 +11,9 @@ class Channels extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Channels',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
-              Icon(
-                Icons.add_outlined,
-                color: Colors.white,
-              )
-            ],
+          const MyTitleBar(
+            title: 'Channels',
+            icon: Icons.add_outlined,
           ),
           const SizedBox(
             height: 10,
@@ -55,11 +41,11 @@ class Channels extends StatelessWidget {
                         Stack(
                           children: [
                             ClipRRect(
-                              borderRadius: BorderRadius.circular(40),
+                              borderRadius: BorderRadius.circular(36),
                               child: Image.asset(
                                 'lib/images/ahmadDp.png',
-                                width: 80,
-                                height: 80,
+                                width: 72,
+                                height: 72,
                               ),
                             ),
                             Positioned(
@@ -107,6 +93,7 @@ class Channels extends StatelessWidget {
                 })),
           ),
 
+          const SizedBox(height: 18,),
           ElevatedButton(
             onPressed: () => {},
             child: const Text('Explore more')
