@@ -51,7 +51,14 @@ class Status extends StatelessWidget {
               ),
             ),
           ),
-          Row()
+          const SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Muted Updates', style: TextStyle(color: Colors.grey[300],)),
+              IconButton(onPressed: (){}, icon: Icon(Icons.arrow_drop_down_outlined, color: Colors.grey[400],))
+            ],
+          )
         ],
       ),
     );

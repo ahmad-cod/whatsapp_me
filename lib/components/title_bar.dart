@@ -8,22 +8,25 @@ class MyTitleBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
+    return Padding(
+      padding: const EdgeInsets.only(top: 12.0, bottom: 6),
+      child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
                 ),
-              ),
-              Icon(
-                icon,
-                color: Colors.white,
-              )
-            ],
-          );
+                Icon(
+                  icon,
+                  color: Colors.white,
+                )
+              ],
+            ),
+    );
   }
 }
