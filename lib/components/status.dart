@@ -11,12 +11,11 @@ class Status extends StatelessWidget {
       child: Column(
         children: [
           const MyTitleBar(title: 'Status', icon: Icons.more_vert),
-          const SizedBox(height: 12,),
           ListTile(
             leading: Stack(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(26),
                   child: Image.asset(
                     'lib/images/ahmadDp.png',
                     width: 50,

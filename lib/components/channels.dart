@@ -21,7 +21,7 @@ class Channels extends StatelessWidget {
           const Text('here are some channels '),
           const SizedBox(height: 10,),
           SizedBox(
-            height: 200,
+            height: 170,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 8,
@@ -41,11 +41,11 @@ class Channels extends StatelessWidget {
                         Stack(
                           children: [
                             ClipRRect(
-                              borderRadius: BorderRadius.circular(36),
+                              borderRadius: BorderRadius.circular(35),
                               child: Image.asset(
                                 'lib/images/ahmadDp.png',
-                                width: 72,
-                                height: 72,
+                                width: 70,
+                                height: 70,
                               ),
                             ),
                             Positioned(
