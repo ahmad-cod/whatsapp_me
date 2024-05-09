@@ -23,7 +23,7 @@ class ChatTile extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(25),
             child: Image.asset( 
-              chat.profilePic, width: 45, height: 45, ),
+              'lib/images/${chat.profilePic}', width: 45, height: 45, ),
           ),
         ),
         title: Text(

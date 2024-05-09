@@ -91,7 +91,7 @@ class _ContactsViewState extends State<ContactsView> {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              ChatView(chatUser: chats[index])));
+                              ChatView(chatUser: contactList[index])));
                 },
                 child: ListTile(
                   leading: CircleAvatar(

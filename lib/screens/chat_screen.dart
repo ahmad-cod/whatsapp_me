@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/components/message_tile.dart';
-import 'package:whatsapp_clone/models/chat.dart';
+import 'package:whatsapp_clone/models/chat_user.dart';
 
 class ChatView extends StatefulWidget {
-  final Chat chatUser;
+  final ChatUser chatUser;
 
   const ChatView({super.key, required this.chatUser});
 
@@ -52,7 +52,7 @@ class _ChatViewState extends State<ChatView> {
               width: 5,
             ),
             CircleAvatar(
-              backgroundImage: AssetImage(widget.chatUser.profilePic),
+              backgroundImage: AssetImage('lib/images/${widget.chatUser.profilePic}'),
             )
           ],
         ),
