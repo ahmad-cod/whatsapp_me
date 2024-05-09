@@ -19,7 +19,9 @@ List<Contact> contactList = const [
     about: 'Sincerity, Excellence and Service'),
   Contact(
     name: 'الشيخ يونس',
-    profilePic: 'palestine.jpeg'),
+    profilePic: 'palestine.jpeg',
+    about: 'Propietor of The Qurra Academy'
+  ),
   Contact(
     name: 'Maafy',
     profilePic: 'maafy.jpeg',

@@ -1,60 +1,50 @@
+import 'package:whatsapp_clone/models/chat_user.dart';
+
 List<Chat> chats = [
   const Chat(
     name: 'Aroyehun A',
-    profilePic: 'lib/images/ahmadDp.png',
+    profilePic: 'ahmadDp.png',
     message: 'You just won \$50 from the flutter challenge',
-    isRead: false,
     time: 'today',
   ),
   const Chat(
     name: 'Jalasem',
-    profilePic: 'lib/images/jalasemdp.jpeg',
-    message: 'Congratulations brother!',
-    isRead: true,
-    time: 'today',
+    profilePic: 'jalasemdp.jpeg',
+    message: 'Congratulations brother!',    time: 'today',
   ),
   const Chat(
     name: 'Maafy',
-    profilePic: 'lib/images/maafy.jpeg',
-    message: 'Assalamu alaykum Ustadh',
-    isRead: true,
-    time: 'yesterday',
+    profilePic: 'maafy.jpeg',
+    message: 'Assalamu alaykum Ustadh',    time: 'yesterday',
   ),
   const Chat(
     name: 'Rentlify Team',
-    profilePic: 'lib/images/rentlify.jpeg',
+    profilePic: 'rentlify.jpeg',
     message: 'We are launching fully next month team.',
-    isRead: false,
     time: 'May 2',
   ),
   const Chat(
     name: 'الشيخ عبدالسلام',
-    profilePic: 'lib/images/palestine.jpeg',
+    profilePic: 'palestine.jpeg',
     message: 'حياكم الله شيخنا',
-    isRead: false,
     time: 'May 1',
   ),
   const Chat(
       name: 'Abdurrahman Ade',
-      profilePic: 'lib/images/dekunle.jpeg',
+      profilePic: 'dekunle.jpeg',
       message: 'I couldn\'t get the umrah visa!',
-      isRead: false,
       time: 'May 1'),
 ];
 
-class Chat {
+class Chat extends ChatUser {
   const Chat({
-    required this.name,
-    required this.profilePic,
+    required super.name,
+    required super.profilePic,
     required this.message,
-    required this.isRead,
     required this.time,
   });
 
-  final String name;
-  final String profilePic;
   final String message;
-  final bool isRead;
   final String time;
 
   // methods

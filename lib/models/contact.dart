@@ -1,8 +1,13 @@
-class Contact {
-  final String name;
+import 'package:whatsapp_clone/models/chat_user.dart';
+
+class Contact extends ChatUser {
   final String? about;
-  final String profilePic;
   final List? messages;
 
-  const Contact({ required this.name, this.about, required this.profilePic, this.messages});
+  const Contact({
+    required super.name,
+    required super.profilePic,
+    this.about,
+    this.messages
+  });
 }
