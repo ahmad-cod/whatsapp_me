@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:whatsapp_clone/models/call_log.dart';
 
 class CallTile extends StatelessWidget {
   final CallLog callLog;
   const CallTile({super.key, required this.callLog});
 
+
    Icon getIcon(CallType callType) {
       switch (callType) {
         case CallType.missed:
-          return const Icon(Icons.call_missed_sharp, color: Colors.red);
+          return const Icon(Icons.call_missed, color: Colors.red, size: 18,);
         case CallType.received:
-          return const Icon(Icons.call_received_sharp, color: Colors.green);
+          return Icon(Icons.call_received_sharp, color: Colors.green[800], size: 18,);
         case CallType.dialed:
-          return const Icon(Icons.call_made_sharp, color: Colors.blue);
+          return const Icon(Icons.call_made_sharp, color: Colors.blue, size: 18,);
         default:
         return const Icon(Icons.call_missed_sharp, color: Colors.red);
       }
@@ -20,6 +22,7 @@ class CallTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String formattedTime = DateFormat('MMM d, h:mm a').format(callLog.timestamp);
     return ListTile(
       leading: Container(
         decoration: BoxDecoration(
@@ -41,7 +44,7 @@ class CallTile extends StatelessWidget {
           getIcon(callLog.callType),
           const SizedBox(width: 5,),
           Text(
-          '${callLog.timestamp}',
+          formattedTime,
             style: TextStyle(color: Colors.grey[350]),
           ),
         ],

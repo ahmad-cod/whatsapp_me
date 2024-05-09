@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/components/call_tile.dart';
+import 'package:whatsapp_clone/components/my_divider.dart';
 import 'package:whatsapp_clone/models/call_log.dart';
 
 class CallsScreen extends StatelessWidget {
@@ -11,10 +12,8 @@ class CallsScreen extends StatelessWidget {
       backgroundColor: Colors.teal,
       body: Column(
         children: [
-          const Divider(
-            color: Colors.grey,
-            height: 1,
-          ),
+          const MyDivider(),
+          const SizedBox(height: 10,),
           const Row(),
           Expanded(
             child: ListView.builder(

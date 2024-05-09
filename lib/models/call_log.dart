@@ -33,27 +33,27 @@ List<CallLog> callLogs = [
     number: "+9876543210",
     dpPath: "maafy.jpeg",
     callType: CallType.received,
-    timestamp: DateTime.now().subtract(const Duration(days: 1)), // Yesterday
+    timestamp: DateTime.now().subtract(const Duration(hours: 4)), 
   ),
   CallLog(
     name: "Prince Ade",
     number: "07054547240",
     dpPath: "ahmadDp.png",
     callType: CallType.dialed,
-    timestamp: DateTime.now().subtract(const Duration(hours: 1)), // Yesterday
+    timestamp: DateTime.now().subtract(const Duration(hours: 8)), 
   ),
   CallLog(
     name: "Scholar AR",
     number: "+2456543210",
     dpPath: "dekunle.jpeg",
     callType: CallType.received,
-    timestamp: DateTime.now().subtract(const Duration(days: 1)), // Yesterday
+    timestamp: DateTime.now().subtract(const Duration(days: 1)), 
   ),
   CallLog(
     name: "", // Empty name for testing number handling
     number: "+0123456789",
     dpPath: "palestine.jpeg",
     callType: CallType.received,
-    timestamp: DateTime.now().subtract(const Duration(minutes: 30)), // 30 minutes ago
+    timestamp: DateTime.now().subtract(const Duration(days: 10, hours: 4)),
   ),
 ];
