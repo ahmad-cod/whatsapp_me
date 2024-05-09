@@ -27,7 +27,7 @@ class _ChatViewState extends State<ChatView> {
     msgInputTextController.clear();
   }
 
-  void _deleteMessage(int index) {
+  void Function(BuildContext)? _deleteMessage(int index) {
     setState(() {
       messageList.removeAt(index);
     });
@@ -107,7 +107,8 @@ class _ChatViewState extends State<ChatView> {
                 child: ListView.builder(
                     itemCount: messageList.length,
                     itemBuilder: (context, index) {
-                      return MessageTile(message: messageList[index]);
+                      return MessageTile(message: messageList[index],deleteMessage: (context) => _deleteMessage(index),
+                      );
                     })),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
