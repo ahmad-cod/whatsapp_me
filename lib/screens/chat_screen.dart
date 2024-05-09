@@ -31,6 +31,7 @@ class _ChatViewState extends State<ChatView> {
     setState(() {
       messageList.removeAt(index);
     });
+    return null;
   }
 
   @override
