@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/components/my_appbar.dart';
 import 'package:whatsapp_clone/components/navbar.dart';
+import 'package:whatsapp_clone/constants.dart';
 import 'package:whatsapp_clone/models/custom_icon.dart';
 import 'package:whatsapp_clone/screens/calls_screen.dart';
 import 'package:whatsapp_clone/screens/community_screen.dart';
@@ -69,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: primaryColor,
       appBar: MyAppBar(title: _titles[selectedIndex]),
 
       body: _screens[selectedIndex],
