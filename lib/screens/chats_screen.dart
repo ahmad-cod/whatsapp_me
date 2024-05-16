@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/components/chat_tile.dart';
+import 'package:whatsapp_clone/constants.dart';
 import 'package:whatsapp_clone/models/chat.dart';
 
 class ChatsScreen extends StatelessWidget {
@@ -8,7 +9,7 @@ class ChatsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal,
+      backgroundColor: primaryColor,
       body: Column(
         children: [
           const Divider(

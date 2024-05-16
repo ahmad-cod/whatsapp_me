@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/constants.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   // will take title variable
@@ -31,7 +32,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             onPressed: () {},
           ),
         ],
-        backgroundColor: Colors.teal,
+        backgroundColor: accentColor,
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),

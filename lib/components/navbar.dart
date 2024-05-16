@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/constants.dart';
 
 class Navbar extends StatefulWidget {
   final int selectedIndex;
@@ -30,7 +31,7 @@ class _NavbarState extends State<Navbar> {
       type: BottomNavigationBarType.fixed,
       selectedItemColor: Colors.white,
       unselectedItemColor: Colors.grey[400],
-      backgroundColor: Colors.teal,
+      backgroundColor: accentColor,
       currentIndex: widget.selectedIndex,
       onTap: (index) => widget.navigateNavbar(index),
       items: _navbarItems
