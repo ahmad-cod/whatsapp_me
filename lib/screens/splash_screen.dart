@@ -1,8 +1,22 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/screens/layout.dart';
 
-class IntroScreen extends StatelessWidget {
-  const IntroScreen({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 2), _navigateToHomeScreen);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +34,7 @@ class IntroScreen extends StatelessWidget {
             )),
           ),
           Column(
-            children: [
+            children: <Widget>[
               Text(
                 'from',
                 style: TextStyle(
@@ -35,7 +49,7 @@ class IntroScreen extends StatelessWidget {
                     color: Colors.white,
                   ),
                   Text(
-                    'Meta',
+                    ' Meta',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,
@@ -50,6 +64,15 @@ class IntroScreen extends StatelessWidget {
             ],
           ),
         ],
+      ),
+    );
+  }
+
+  void _navigateToHomeScreen() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const HomeScreen(),
       ),
     );
   }
