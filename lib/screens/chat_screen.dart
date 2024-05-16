@@ -12,16 +12,12 @@ class ChatView extends StatefulWidget {
 }
 
 class _ChatViewState extends State<ChatView> {
-  // variables: newMessage, messageList, msgInputTextController
-  String newMessage = '';
-  List messageList = ['Hello, world!', 'How are you?'];
   TextEditingController msgInputTextController = TextEditingController();
 
-  // methods for saving and deleting messages
   void _saveMessage() {
     if (msgInputTextController.text.trim() != "") {
       setState(() {
-        messageList.add(msgInputTextController.text);
+        widget.chatUser.messages.add(msgInputTextController.text);
       });
     }
     msgInputTextController.clear();
@@ -29,7 +25,9 @@ class _ChatViewState extends State<ChatView> {
 
   void Function(BuildContext)? _deleteMessage(int index) {
     setState(() {
-      messageList.removeAt(index);
+      if (widget.chatUser.messages.isNotEmpty) {
+      widget.chatUser.messages.removeAt(index);
+      }
     });
     return null;
   }
@@ -53,7 +51,8 @@ class _ChatViewState extends State<ChatView> {
               width: 5,
             ),
             CircleAvatar(
-              backgroundImage: AssetImage('lib/images/${widget.chatUser.profilePic}'),
+              backgroundImage:
+                  AssetImage('lib/images/${widget.chatUser.profilePic}'),
             )
           ],
         ),
@@ -106,9 +105,12 @@ class _ChatViewState extends State<ChatView> {
           children: [
             Expanded(
                 child: ListView.builder(
-                    itemCount: messageList.length,
+                    itemCount: widget.chatUser.messages.length ,
                     itemBuilder: (context, index) {
-                      return MessageTile(message: messageList[index],deleteMessage: (context) => _deleteMessage(index),
+                      return MessageTile(
+                        message:
+                            widget.chatUser.messages[index] ?? 'No message',
+                        deleteMessage: (context) => _deleteMessage(index),
                       );
                     })),
             Row(

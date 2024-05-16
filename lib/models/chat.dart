@@ -1,50 +1,74 @@
 import 'package:whatsapp_clone/models/chat_user.dart';
 
 List<Chat> chats = [
-  const Chat(
+  Chat(
     name: 'Aroyehun A',
     profilePic: 'ahmadDp.png',
-    message: 'You just won \$50 from the flutter challenge',
+    lastMessage: 'You just won \$50 from the flutter challenge',
+    messages: [
+      'Hello Akhee!',
+      'You just won \$50 from the flutter challenge'
+    ],
     time: 'today',
   ),
-  const Chat(
+  Chat(
     name: 'Jalasem',
     profilePic: 'jalasemdp.jpeg',
-    message: 'Congratulations brother!',    time: 'today',
+    lastMessage: 'Congratulations brother!',
+    messages: [
+      'Congratulations brother!'
+    ],
+    time: 'today',
   ),
-  const Chat(
+  Chat(
     name: 'Maafy',
     profilePic: 'maafy.jpeg',
-    message: 'Assalamu alaykum Ustadh',    time: 'yesterday',
+    lastMessage: 'Assalamu alaykum Ustadh',
+    messages: [
+      'Assalamu alaykum Ustadh',
+      'How is Abuja'
+    ],
+    time: 'yesterday',
   ),
-  const Chat(
+  Chat(
     name: 'Rentlify Team',
     profilePic: 'rentlify.jpeg',
-    message: 'We are launching fully next month team.',
+    lastMessage: 'We are launching fully next month team.',
+    messages: [
+      'Hi Great Rentlify Team',
+      'We are launching next month team',
+    ],
     time: 'May 2',
   ),
-  const Chat(
+  Chat(
     name: 'الشيخ عبدالسلام',
     profilePic: 'palestine.jpeg',
-    message: 'حياكم الله شيخنا',
+    lastMessage: 'حياكم الله شيخنا',
+    messages: [
+      'حياكم الله شيخنا'
+    ],
     time: 'May 1',
   ),
-  const Chat(
+  Chat(
       name: 'Abdurrahman Ade',
       profilePic: 'dekunle.jpeg',
-      message: 'I couldn\'t get the umrah visa!',
+      lastMessage: 'I couldn\'t get the umrah visa!',
+      messages: [
+        'I couldn\'t get the umrah visa!',
+      ],
       time: 'May 1'),
 ];
 
 class Chat extends ChatUser {
-  const Chat({
+  Chat({
     required super.name,
     required super.profilePic,
-    required this.message,
+    required super.messages,
+    required this.lastMessage,
     required this.time,
   });
 
-  final String message;
+  final String lastMessage;
   final String time;
 
   // methods

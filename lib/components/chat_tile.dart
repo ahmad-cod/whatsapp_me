@@ -31,7 +31,7 @@ class ChatTile extends StatelessWidget {
           style: const TextStyle(color: Colors.white),
         ),
         subtitle: Text(
-          chat.message,
+          chat.lastMessage,
           style: TextStyle(color: Colors.grey[350]),
         ),
         trailing: const Column(
