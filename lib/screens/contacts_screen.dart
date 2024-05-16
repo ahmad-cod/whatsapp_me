@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/constants.dart';
 import 'package:whatsapp_clone/data/contacts_db.dart';
 import 'package:whatsapp_clone/models/contact.dart';
 import 'package:whatsapp_clone/screens/chat_screen.dart';
@@ -33,7 +34,8 @@ class _ContactsViewState extends State<ContactsView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.green,
+          backgroundColor: accentColor,
+          foregroundColor: Colors.white,
           title: isSearch
               ? Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -62,10 +64,14 @@ class _ContactsViewState extends State<ContactsView> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text("Select Contacts"),
+                                const Text("Select Contacts",
+                                  style: TextStyle(
+                                    color: Colors.white
+                                  ),
+                                ),
                                 Text(
                                   "${contactList.length} contacts",
-                                  style: const TextStyle(fontSize: 12),
+                                  style: const TextStyle(fontSize: 12, color: Colors.white),
                                 ),
                               ]),
                         ],

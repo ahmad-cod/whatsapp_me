@@ -46,24 +46,26 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<CustomIcon> _icons = const [
     CustomIcon(
         icon: Icon(Icons.chat_outlined),
-        toScreen: ContactsView(),
+        navigationCallback: ContactsView(),
         tooltip: 'Chat'),
     CustomIcon(
         icon: Icon(Icons.group_add_outlined),
-        toScreen: ContactsView(),
+        navigationCallback: ContactsView(),
         tooltip: 'Chat'),
     CustomIcon(
         icon: Icon(Icons.camera_alt_outlined),
-        toScreen: ContactsView(),
+        navigationCallback: ContactsView(),
         tooltip: 'Upload Status'),
     CustomIcon(
-        icon: Icon(Icons.add_call), toScreen: ContactsView(), tooltip: 'Call'),
+        icon: Icon(Icons.add_call), navigationCallback: ContactsView(), tooltip: 'Call'),
   ];
 
   // methods
   void navigateNavbar(int index) {
     setState(() {
-      selectedIndex = index;
+      if (selectedIndex != index) {
+        selectedIndex = index;
+      }
     });
   }
 
@@ -80,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => _icons[selectedIndex].toScreen));
+                  builder: (context) => _icons[selectedIndex].navigationCallback));
         },
         tooltip: _icons[selectedIndex].tooltip,
         child: _icons[selectedIndex].icon,
