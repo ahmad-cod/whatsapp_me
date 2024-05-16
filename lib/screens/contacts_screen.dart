@@ -12,112 +12,125 @@ class ContactsView extends StatefulWidget {
 }
 
 class _ContactsViewState extends State<ContactsView> {
-  // variables: isSearch
-  bool isSearch = false;
+  bool _isSearch = false;
+  String _searchInput = '';
 
-  // methods
-  void toggleSearch() {
+  void _toggleSearch() {
     setState(() {
-      isSearch = !isSearch;
+      _isSearch = !_isSearch;
+      _searchInput = ''; // Clear search input when exiting search mode
     });
   }
 
-  // method for filtering contactList based on searchInput
   List<Contact> filterContactList(
-      List<Contact> contactList, String searchInput) {
-    return contactList.where((contact) {
-      return contact.name.toLowerCase().contains(searchInput.toLowerCase());
-    }).toList();
+    List<Contact> contactList, String searchInput) {
+  return contactList.where((contact) {
+    return contact.name.toLowerCase().contains(searchInput.toLowerCase());
+  }).toList();
+}
+
+
+  List<Contact> _getFilteredContacts() {
+    if (_searchInput.isEmpty) {
+      return contactList;
+    } else {
+      return filterContactList(contactList, _searchInput.toLowerCase());
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    final filteredContacts = _getFilteredContacts();
+
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: accentColor,
-          foregroundColor: Colors.white,
-          title: isSearch
-              ? Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.7,
-                      child: TextField(
-                        // controller: Controller.text("data"),
-                        style: const TextStyle(color: Colors.white),
-                        cursorColor: Colors.white,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                        ),
-                        autofocus: true,
-                        onChanged: (value) {},
-                      ),
-                    ),
-                  ],
-                )
-              : Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                      Row(
-                        children: [
-                          Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text("Select Contacts",
-                                  style: TextStyle(
-                                    color: Colors.white
-                                  ),
-                                ),
-                                Text(
-                                  "${contactList.length} contacts",
-                                  style: const TextStyle(fontSize: 12, color: Colors.white),
-                                ),
-                              ]),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          GestureDetector(
-                              onTap: toggleSearch,
-                              child: const Icon(Icons.search)),
-                          const SizedBox(width: 10),
-                          const Icon(Icons.more_vert_sharp),
-                        ],
-                      )
-                    ]),
-        ),
-        body: ListView.builder(
-            itemCount: contactList.length,
-            itemBuilder: (context, index) {
-              return GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              ChatView(chatUser: contactList[index])));
-                },
-                child: ListTile(
-                  leading: CircleAvatar(
-                    backgroundImage: AssetImage(
-                        'lib/images/${contactList[index].profilePic}'),
-                    radius: 25,
-                  ),
-                  title: Text(
-                    contactList[index].name,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  subtitle: Text(
-                    "${contactList[index].about}",
-                    style: const TextStyle(
-                      fontSize: 12,
-                    ),
-                  ),
+      appBar: AppBar(
+        backgroundColor: accentColor,
+        foregroundColor: Colors.white,
+        title: _isSearch
+            ? _buildSearchField(context)
+            : _buildNormalAppBarTitle(filteredContacts.length),
+        actions: [
+          IconButton(
+            icon: Icon(_isSearch ? Icons.close : Icons.search),
+            onPressed: _toggleSearch,
+          ),
+          const SizedBox(width: 10),
+          IconButton(
+            icon: const Icon(Icons.more_vert_sharp),
+            onPressed: () {}, // Handle overflow menu actions
+          ),
+        ],
+      ),
+      body: ListView.builder(
+          itemCount: filteredContacts.length,
+          itemBuilder: (context, index) {
+            final contact = filteredContacts[index];
+            return GestureDetector(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ChatView(chatUser: contact),
                 ),
-              );
-            }));
+              ),
+              child: ListTile(
+                leading: CircleAvatar(
+                  backgroundImage: AssetImage(
+                    'lib/images/${contact.profilePic}',
+                  ),
+                  radius: 25,
+                ),
+                title: Text(
+                  contact.name,
+                  style: const TextStyle(fontWeight: FontWeight.w500),
+                ),
+                subtitle: Text(
+                  contact.about ?? '',
+                  style: const TextStyle(fontSize: 12),
+                ),
+              ),
+            );
+          }),
+    );
+  }
+
+  Widget _buildSearchField(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        SizedBox(
+          width: MediaQuery.of(context).size.width * 0.5,
+          child: TextField(
+            onChanged: (value) => setState(() => _searchInput = value),
+            style: const TextStyle(color: Colors.white),
+            cursorColor: Colors.white,
+            decoration: const InputDecoration(
+              border: InputBorder.none,
+            ),
+            autofocus: true,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildNormalAppBarTitle(int contactCount) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "Select Contacts",
+            ),
+            Text(
+              "$contactCount contacts",
+              style: const TextStyle(fontSize: 12,),
+            ),
+          ],
+        ),
+      ],
+    );
   }
 }
