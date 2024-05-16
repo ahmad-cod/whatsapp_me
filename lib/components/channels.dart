@@ -18,7 +18,7 @@ class Channels extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const Text('here are some channels '),
+          Text('Here are some interesting channels you can follow ', style: TextStyle(color: Colors.grey.shade100),),
           const SizedBox(height: 10,),
           SizedBox(
             height: 170,
@@ -30,10 +30,10 @@ class Channels extends StatelessWidget {
                     height: 150,
                     // width: 100,
                     padding: const EdgeInsets.only(top: 10, bottom: 10, right: 10, left: 10),
-                    margin: const EdgeInsets.only(right: 20),
+                    margin: const EdgeInsets.only(right: 20, top: 4),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(),
+                      border: Border.all(color: Colors.grey.shade600),
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/components/channels.dart';
 import 'package:whatsapp_clone/components/my_divider.dart';
 import 'package:whatsapp_clone/components/status.dart';
+import 'package:whatsapp_clone/constants.dart';
 
 class UpdatesScreen extends StatelessWidget {
   const UpdatesScreen({super.key});
@@ -9,7 +10,7 @@ class UpdatesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Colors.teal,
+      backgroundColor: primaryColor,
       body: Column(
         children: [
           MyDivider(),
