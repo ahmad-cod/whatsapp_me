@@ -23,7 +23,10 @@ class CallTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String formattedTime = DateFormat('MMM d, h:mm a').format(callLog.timestamp);
+    // return Text(formattedTime, style: const TextStyle(color: Colors.white),);
     return ListTile(
+      textColor: Colors.white,
+      contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 13),
       leading: Container(
         decoration: BoxDecoration(
           color: Colors.teal[200],
@@ -35,10 +38,8 @@ class CallTile extends StatelessWidget {
                 'lib/images/${callLog.dpPath}', width: 45, height: 45, ),
         ),
       ),
-      title: callLog.name.isEmpty ? Text(callLog.number) :Text(
-        callLog.name,
-        style: const TextStyle(color: Colors.white),
-      ),
+      title: callLog.name.isEmpty ? Text(callLog.number) :
+      Text(callLog.name,),
       subtitle: Row(
         children: [
           getIcon(callLog.callType),
@@ -54,5 +55,36 @@ class CallTile extends StatelessWidget {
         onPressed: () {},
       ),
     );
+    // return ListTile(
+      // leading: Container(
+      //   decoration: BoxDecoration(
+      //     color: Colors.teal[200],
+      //     borderRadius: BorderRadius.circular(28)
+      //   ),
+      //   child: ClipRRect(
+      //     borderRadius: BorderRadius.circular(25),
+      //     child: Image.asset( 
+      //           'lib/images/${callLog.dpPath}', width: 45, height: 45, ),
+      //   ),
+      // ),
+    //   title: callLog.name.isEmpty ? Text(callLog.number) :Text(
+    //     callLog.name,
+    //     style: const TextStyle(color: Colors.white),
+    //   ),
+      // subtitle: Row(
+      //   children: [
+      //     getIcon(callLog.callType),
+      //     const SizedBox(width: 5,),
+      //     Text(
+      //     formattedTime,
+      //       style: TextStyle(color: Colors.grey[350]),
+      //     ),
+      //   ],
+      // ),
+    //   trailing: IconButton(
+    //     icon: const Icon(Icons.call, color: Colors.white70,),
+    //     onPressed: () {},
+    //   ),
+    // );
   }
 }
