@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
     CustomIcon(
         icon: Icon(Icons.group_add_outlined),
         navigationCallback: ContactsView(),
-        tooltip: 'Chat'),
+        tooltip: 'New Community'),
     CustomIcon(
         icon: Icon(Icons.camera_alt_outlined),
         navigationCallback: ContactsView(),
